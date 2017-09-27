@@ -1,0 +1,8 @@
+Kenney.nl Roguelike Characters
+	http://kenney.nl/assets/roguelike-characters
+
+Kenney.nl Roguelike RPG Pack
+	http://kenney.nl/assets/roguelike-rpg-pack
+
+MobilePearls Sokoban
+	https://github.com/mobilepearls/com.mobilepearls.sokoban
