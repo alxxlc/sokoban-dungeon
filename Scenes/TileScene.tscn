@@ -1,0 +1,150 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Assets/GameTiles.tex" type="Texture" id=1]
+
+[node name="TileSet" type="Node2D"]
+
+[node name="Wall_DR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 23.4356, 21.4496 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+
+[node name="Wall_DLR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 65.774, 22.3255 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 1
+
+[node name="Wall_DL" type="Sprite" parent="."]
+
+transform/pos = Vector2( 110.156, 22.6175 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 2
+
+[node name="Wall_UD" type="Sprite" parent="."]
+
+transform/pos = Vector2( 151.03, 21.8427 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 3
+
+[node name="Wall_UDR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 25.6982, 66.3963 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 4
+
+[node name="Wall_UDLR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 67.7336, 65.8152 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 5
+
+[node name="Wall_UDL" type="Sprite" parent="."]
+
+transform/pos = Vector2( 111.319, 65.4278 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 6
+
+[node name="Wall_LR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 151.417, 65.4278 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 7
+
+[node name="Wall_UR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 25.6982, 108.238 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 8
+
+[node name="Wall_ULR" type="Sprite" parent="."]
+
+transform/pos = Vector2( 67.5399, 107.463 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 9
+
+[node name="Wall_UL" type="Sprite" parent="."]
+
+transform/pos = Vector2( 111.9, 107.269 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 10
+
+[node name="Wall" type="Sprite" parent="."]
+
+transform/pos = Vector2( 151.804, 107.463 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 11
+
+[node name="Wall_U" type="Sprite" parent="."]
+
+transform/pos = Vector2( 27.6864, 150.153 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 12
+
+[node name="Wall_D" type="Sprite" parent="."]
+
+transform/pos = Vector2( 70.1131, 149.89 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 13
+
+[node name="Wall_L" type="Sprite" parent="."]
+
+transform/pos = Vector2( 110.157, 150.153 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 14
+
+[node name="Wall_R" type="Sprite" parent="."]
+
+transform/pos = Vector2( 150.07, 150.944 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 15
+
+[node name="Floor" type="Sprite" parent="."]
+
+transform/pos = Vector2( 24.6093, 194.061 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 16
+
+[node name="Target" type="Sprite" parent="."]
+
+transform/pos = Vector2( 68.6631, 192.64 )
+texture = ExtResource( 1 )
+vframes = 6
+hframes = 4
+frame = 17
+
+

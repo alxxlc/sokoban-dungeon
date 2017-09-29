@@ -14,6 +14,7 @@ func GetLevel(levelSet, levelNum):
 func LoadLevels():
 	# # Pound Symbol -> Wall
 	# $ Dollar Sign -> Box/Diamond (object that is pushed to target)
+	# * Asterisk -> Box/Diamon on target
 	# @ At Symbol -> Player starting point
 	# . Period -> Target point
 	#   Space -> Floor
