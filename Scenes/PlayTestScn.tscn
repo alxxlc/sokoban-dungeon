@@ -7,8 +7,8 @@
 [node name="Root2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
-levelSet = 1
-levelNum = 35
+levelSet = 0
+levelNum = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 

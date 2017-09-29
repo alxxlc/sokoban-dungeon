@@ -1,7 +1,7 @@
 extends Node2D
 
-export var levelSet = 1
-export var levelNum = 35
+export var levelSet = 0
+export var levelNum = 1
 var levelStrAry = []
 var boxPlaces = []
 
