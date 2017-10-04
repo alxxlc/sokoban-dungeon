@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://Scenes/PlayTestScn.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/LevelController.gd" type="Script" id=1]
 [ext_resource path="res://Assets/EnvTileSet.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/PlayerScene.tscn" type="PackedScene" id=3]
 
 [node name="Root2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
-levelSet = 0
-levelNum = 1
+levelSet = 2
+levelNum = 15
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -28,6 +27,6 @@ collision/mask = 1
 occluder/light_mask = 1
 tile_data = IntArray(  )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="BoxGroup" type="Node2D" parent="."]
 
 

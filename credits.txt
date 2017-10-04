@@ -1,8 +1,36 @@
+##########
+# Levels #
+##########
+
+MobilePearls Sokoban
+	https://github.com/mobilepearls/com.mobilepearls.sokoban
+
+#######
+# Art #
+#######
+
 Kenney.nl Roguelike Characters
 	http://kenney.nl/assets/roguelike-characters
 
 Kenney.nl Roguelike RPG Pack
 	http://kenney.nl/assets/roguelike-rpg-pack
 
-MobilePearls Sokoban
-	https://github.com/mobilepearls/com.mobilepearls.sokoban
+
+#########
+# MUSIC #
+#########
+
+Strange Dungeon Theme
+	https://opengameart.org/content/strange-dungeon-theme
+
+Sinister Loop
+	https://opengameart.org/content/sinister-loop
+
+Tip-Toe Cavern
+	https://opengameart.org/content/tip-toe-cavern
+
+Dark Lights
+	https://opengameart.org/content/dark-lights
+
+Dragon King Dungeon
+	https://opengameart.org/content/dragon-kings-dungeon
