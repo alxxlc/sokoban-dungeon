@@ -2,7 +2,7 @@ extends Node2D
 
 var playerNode = load("res://Scenes/PlayerScene.tscn").instance()
 
-export var levelSet = 2
+export var levelSet = 1
 export var levelNum = 15
 var levelStrAry = []
 
@@ -20,8 +20,34 @@ func _ready():
 
 func CheckPlayerMove(playerTilePos, moveVec):
 	var checkPos = playerTilePos + moveVec
-	if (levelStrAry[checkPos.x][checkPos.y] == "#"):
+	
+	# Check for wall collision
+	if (levelStrAry[checkPos.y][checkPos.x] == "#"):
 		return false
+	
+	# Check for box collision
+	for curBox in get_node("BoxGroup").get_children():
+		if (curBox.GetTilePos() == checkPos):
+			if (not CheckBoxMove(curBox, moveVec)):
+				return false
+			else: return true
+	
+	return true
+
+func CheckBoxMove(sentBox, moveVec):
+	var checkPos = sentBox.GetTilePos() + moveVec
+	
+	# Check for wall collision
+	if (levelStrAry[checkPos.y][checkPos.x] == "#"):
+		return false
+	
+	# Check for box collision
+	for curBox in get_node("BoxGroup").get_children():
+		if (curBox.GetTilePos() == checkPos):
+			return false
+	
+	# No collisions found; move box
+	sentBox.SetPos(checkPos.x, checkPos.y)
 	return true
 
 func DrawLevel(sentLvlSet, sentLvlNum):
