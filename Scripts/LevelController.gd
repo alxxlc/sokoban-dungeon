@@ -2,9 +2,10 @@ extends Node2D
 
 var playerNode = load("res://Scenes/PlayerScene.tscn").instance()
 
-export var levelSet = 1
-export var levelNum = 15
+export var levelSet = 0
+export var levelNum = 0
 var levelStrAry = []
+var levelDrawn = false
 
 # Tile int constants
 const WALL_DR = 0; const WALL_DLR = 1; const WALL_DL = 2; const WALL_UD = 3;
@@ -50,7 +51,18 @@ func CheckBoxMove(sentBox, moveVec):
 	sentBox.SetPos(checkPos.x, checkPos.y)
 	return true
 
+func CheckWin():
+	if (not levelDrawn):
+		return
+	
+	for curBox in get_node("BoxGroup").get_children():
+		if (not curBox.onTarget):
+			return
+	
+	print("Game won!")
+
 func DrawLevel(sentLvlSet, sentLvlNum):
+	levelDrawn = false
 	levelStrAry = LevelLoader.GetLevel(sentLvlSet, sentLvlNum)
 	get_node("TileMap").clear()
 	
@@ -59,23 +71,29 @@ func DrawLevel(sentLvlSet, sentLvlNum):
 	for curInd in levelStrAry:
 		for i in range(0, curInd.length()):
 			if (curInd[i] == " "):
+				# Check for floor tile
 				get_node("TileMap").set_cell(curTile.x, curTile.y, FLOOR)
 			elif (curInd[i] == "@"):
+				# Check for player position
 				get_node("TileMap").set_cell(curTile.x, curTile.y, FLOOR)
 				playerNode.set_pos(Vector2((curTile.x * get_node("TileMap").get_cell_size().x), (curTile.y * get_node("TileMap").get_cell_size().y)))
 			elif (curInd[i] == "$"):
+				# Check for box
 				get_node("TileMap").set_cell(curTile.x, curTile.y, FLOOR)
 				var newBox = load("res://Scenes/BoxScene.tscn").instance()
-				newBox.SetPos(curTile.x, curTile.y)
+				newBox.Init(self, curTile.x, curTile.y)
 				get_node("BoxGroup").add_child(newBox)
 			elif (curInd[i] == "*"):
+				# Check for box on target tile
 				get_node("TileMap").set_cell(curTile.x, curTile.y, TARGET)
 				var newBox = load("res://Scenes/BoxScene.tscn").instance()
-				newBox.SetPos(curTile.x, curTile.y)
+				newBox.Init(self, curTile.x, curTile.y)
 				get_node("BoxGroup").add_child(newBox)
 			elif (curInd[i] == "."):
+				# Check for target tile
 				get_node("TileMap").set_cell(curTile.x, curTile.y, TARGET)
 			elif (curInd[i] == "#"):
+				# Check for wall tile
 				var tmpWallType = CheckWallType(curTile.x, curTile.y)
 				get_node("TileMap").set_cell(curTile.x, curTile.y, tmpWallType)
 			
@@ -83,6 +101,8 @@ func DrawLevel(sentLvlSet, sentLvlNum):
 		
 		curTile.x = 0
 		curTile.y += 1
+	
+	levelDrawn = true
 
 func CheckWallType(sentX, sentY):
 	var levelLength = levelStrAry[0].length()

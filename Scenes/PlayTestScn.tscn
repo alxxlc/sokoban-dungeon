@@ -6,8 +6,12 @@
 [node name="Root2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
-levelSet = 1
-levelNum = 15
+levelSet = 0
+levelNum = 0
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+color = Color( 0.449219, 0.449219, 0.449219, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 
@@ -28,5 +32,7 @@ occluder/light_mask = 1
 tile_data = IntArray(  )
 
 [node name="BoxGroup" type="Node2D" parent="."]
+
+[node name="LightGroup" type="Node2D" parent="."]
 
 
