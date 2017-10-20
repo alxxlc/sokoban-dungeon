@@ -1,12 +1,13 @@
 Future Ideas:
-  ☐ Player character holds torch, other areas are visible but dimmly lit. (Not to hinder the player, just for aesthetics)
+  ✔ Player character holds torch, other areas are visible but dimmly lit. (Not to hinder the player, just for aesthetics) @done (17-10-18 13:25)
 
 RC 1:
-  ☐ Box spawning
-  ☐ Player/box collision and movement
-  ☐ Player/box/wall collision
-  ☐ Box on target detection
-  ☐ Win condition detection
+  ✔ Box spawning @done (17-10-18 13:25)
+  ✔ Player/box collision and movement @done (17-10-18 13:25)
+  ✔ Player/box/wall collision @done (17-10-18 13:25)
+  ✔ Box on target detection @done (17-10-18 13:25)
+  ✔ Win condition detection @done (17-10-18 13:25)
+  ☐ Alert on win, change to next level
   ☐ Add in sounds
     - Dungeon music
     - Movement sounds
@@ -15,5 +16,8 @@ RC 1:
   ☐ Level select menu
 
 RC 2:
+  ☐ Update box art
+    - Possibly change to something other than a box.
   ☐ "Story" mode
     - Just a guided tour of some levels to give the player a sample of the game before unlocking all levels.
+    - Needs some simple levels to introduce the basic concepts.

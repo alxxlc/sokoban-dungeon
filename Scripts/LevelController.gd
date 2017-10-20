@@ -3,7 +3,7 @@ extends Node2D
 var playerNode = load("res://Scenes/PlayerScene.tscn").instance()
 
 export var levelSet = 0
-export var levelNum = 0
+export var levelNum = 1
 var levelStrAry = []
 var levelDrawn = false
 

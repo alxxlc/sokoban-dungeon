@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Assets/GameTiles.tex" type="Texture" id=1]
 [ext_resource path="res://Scripts/PlayerController.gd" type="Script" id=2]
 [ext_resource path="res://Assets/LightTex.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/CameraFollow.gd" type="Script" id=4]
 
 [node name="Player" type="Sprite"]
 
@@ -33,14 +34,14 @@ drag_margin/top = 0.1
 drag_margin/right = 0.1
 drag_margin/bottom = 0.1
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="CameraLight" type="Light2D" parent="."]
 
 transform/pos = Vector2( 16, 16 )
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
-scale = 3.0
+scale = 5.0
 color = Color( 1, 1, 1, 1 )
 energy = 0.5
 mode = 0
@@ -50,7 +51,56 @@ range/z_max = 1024
 range/layer_min = 0
 range/layer_max = 0
 range/item_mask = 1
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+script/script = ExtResource( 4 )
+
+[node name="PlayerLights" type="Node2D" parent="."]
+
+transform/pos = Vector2( 16, 16 )
+
+[node name="Light2D-1" type="Light2D" parent="PlayerLights"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+scale = 2.25
+color = Color( 0.746094, 0.746094, 0.746094, 1 )
+energy = 0.1
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
 shadow/enabled = true
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Light2D-2" type="Light2D" parent="PlayerLights"]
+
+enabled = true
+editor_only = false
+texture = ExtResource( 3 )
+offset = Vector2( 0, 0 )
+scale = 4.0
+color = Color( 0.746094, 0.746094, 0.746094, 1 )
+energy = 0.8
+mode = 0
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 1
+shadow/enabled = false
 shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0

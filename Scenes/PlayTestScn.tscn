@@ -7,11 +7,11 @@
 
 script/script = ExtResource( 1 )
 levelSet = 0
-levelNum = 0
+levelNum = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
-color = Color( 0.449219, 0.449219, 0.449219, 1 )
+color = Color( 0.0305481, 0.0495882, 0.0859375, 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
 

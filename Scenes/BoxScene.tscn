@@ -45,7 +45,7 @@ tracks/0/keys = {
 "times": FloatArray( 0 ),
 "transitions": FloatArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 0.207886, 1, 0.015625, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Light2D:energy")
@@ -74,7 +74,7 @@ enabled = true
 editor_only = false
 texture = ExtResource( 3 )
 offset = Vector2( 0, 0 )
-scale = 0.5
+scale = 0.6
 color = Color( 1, 0, 0, 1 )
 energy = 0.25
 mode = 0
@@ -84,7 +84,7 @@ range/z_max = 1024
 range/layer_min = 0
 range/layer_max = 0
 range/item_mask = 1
-shadow/enabled = false
+shadow/enabled = true
 shadow/color = Color( 0, 0, 0, 0 )
 shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
