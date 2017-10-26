@@ -15,7 +15,7 @@ func Init(sentNode, tilePosX, tilePosY):
 
 func _process(delta):
 	glowWait += delta
-	if (glowWait >= glowWaitLimit):
+	if ((glowWait >= glowWaitLimit) and (!onTarget)):
 		get_node("AnimationPlayer").play("glow")
 		set_process(false)
 

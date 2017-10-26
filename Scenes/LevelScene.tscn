@@ -1,13 +1,11 @@
 [gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Scripts/LevelController.gd" type="Script" id=1]
-[ext_resource path="res://Assets/EnvTileSet.tres" type="TileSet" id=2]
+[ext_resource path="res://Assets/Images/Imported Textures/DungeonTiles.tres" type="TileSet" id=2]
 
 [node name="Root2D" type="Node2D"]
 
 script/script = ExtResource( 1 )
-levelSet = 0
-levelNum = 1
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 
