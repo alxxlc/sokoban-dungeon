@@ -3,13 +3,14 @@ extends Sprite
 var tileSize = 32
 var inputTime = 0.0
 var inputLimit = .25
-var levelNode
+var moveCount = 0
+var levelController
 
 func _ready():
 	set_process(true)
 
-func SetLevelNode(sentNode):
-	levelNode = sentNode
+func SetLevelController(sentNode):
+	levelController = sentNode
 
 func _process(delta):
 	inputTime += delta
@@ -28,12 +29,22 @@ func _process(delta):
 			MoveDir(Vector2(1, 0))
 			inputTime = 0.0
 	
+	if (Input.is_action_pressed("LevelReset")):
+		levelController.DrawLevel()
+	
 	if ((not Input.is_action_pressed("Move_U")) and (not Input.is_action_pressed("Move_D")) and (not Input.is_action_pressed("Move_L")) and (not Input.is_action_pressed("Move_R"))):
 		inputTime = inputLimit
 
 func MoveDir(sentVec):
 	var curPos = self.get_pos()
 	var tilePos = Vector2((curPos.x / tileSize), (curPos.y / tileSize))
-	if (levelNode.CheckPlayerMove(tilePos, sentVec)):
+	if (levelController.CheckPlayerMove(tilePos, sentVec)):
 		curPos += (sentVec * tileSize)
 	self.set_pos(curPos)
+	moveCount += 1
+	if (levelController.levelWon):
+		levelController.LevelWin()
+
+func ShowWinMessage():
+	pass
+	

@@ -1,11 +1,9 @@
 extends Node2D
 
 var playerNode = load("res://Scenes/PlayerScene.tscn").instance()
-
-export var levelSet = 0
-export var levelNum = 1
 var levelStrAry = []
 var levelDrawn = false
+var levelWon = false
 
 # Tile int constants
 const WALL_DR = 0; const WALL_DLR = 1; const WALL_DL = 2; const WALL_UD = 3;
@@ -16,8 +14,8 @@ const FLOOR = 16; const TARGET = 17
 
 func _ready():
 	self.add_child(playerNode)
-	playerNode.SetLevelNode(self)
-	DrawLevel(levelSet, levelNum)
+	playerNode.SetLevelController(self)
+	self.DrawLevel()
 
 func CheckPlayerMove(playerTilePos, moveVec):
 	var checkPos = playerTilePos + moveVec
@@ -59,12 +57,30 @@ func CheckWin():
 		if (not curBox.onTarget):
 			return
 	
-	print("Game won!")
+	# Flag as won to let call stack finish processing before calling LevelWin()
+	levelWon = true
 
-func DrawLevel(sentLvlSet, sentLvlNum):
+func LevelWin():
+	if (not levelWon): return
+	levelWon = false
+	print("Game won in ", playerNode.moveCount, " moves!")
+	
+	# Move on to next level
+	GameController.IncLevel()
+	self.DrawLevel()
+
+func ResetLevel():
 	levelDrawn = false
-	levelStrAry = LevelLoader.GetLevel(sentLvlSet, sentLvlNum)
 	get_node("TileMap").clear()
+	playerNode.moveCount = 0
+	
+	for curBox in get_node("BoxGroup").get_children():
+		curBox.free()
+
+func DrawLevel():
+	self.ResetLevel()
+	var nextLevelVec = GameController.GetNextLevel()
+	levelStrAry = LevelLoader.GetLevel(nextLevelVec.x, nextLevelVec.y)
 	
 	var curTile = Vector2(0, 0)
 	

@@ -1,4 +1,4 @@
-extends Light2D
+extends Node2D
 
 var cameraNode
 

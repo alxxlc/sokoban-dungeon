@@ -15,6 +15,9 @@ Kenney.nl Roguelike Characters
 Kenney.nl Roguelike RPG Pack
 	http://kenney.nl/assets/roguelike-rpg-pack
 
+Kenney.nl Kenpixel Blocks Font
+	http://kenney.nl/assets/kenney-fonts
+
 
 #########
 # MUSIC #
