@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Scripts/MainMenu.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/StoneButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Fonts/Imported Fonts/BlockMainTitle.fnt" type="BitmapFont" id=2]
+[ext_resource path="res://Scenes/StoneButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Fonts/Imported Fonts/BlockTitle.fnt" type="BitmapFont" id=4]
 
 [node name="GUIController" type="Node2D"]
 
@@ -9,6 +11,7 @@ script/script = ExtResource( 1 )
 
 [node name="MainMenu" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
@@ -19,39 +22,81 @@ margin/right = 1025.0
 margin/bottom = 800.0
 use_top_left = false
 
-[node name="ButtonGroup" type="ButtonGroup" parent="MainMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 212.0
+margin/top = 168.0
+margin/right = 812.0
+margin/bottom = 631.0
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MainMenu/VBoxContainer"]
+
+rect/min_size = Vector2( 600, 200 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 600.0
+margin/bottom = 200.0
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode/enabled = true
+bbcode/bbcode = "[center]Sokoban Dungeon[/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu/VBoxContainer"]
+
+visibility/opacity = 0.0
+rect/min_size = Vector2( 0, 70 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 204.0
+margin/right = 600.0
+margin/bottom = 274.0
+
+[node name="ButtonGroup" type="ButtonGroup" parent="MainMenu/VBoxContainer"]
 
 rect/min_size = Vector2( 350, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 337.0
-margin/top = 307.0
-margin/right = 687.0
-margin/bottom = 492.0
+margin/left = 0.0
+margin/top = 278.0
+margin/right = 600.0
+margin/bottom = 463.0
 alignment = 1
 
-[node name="LevelSelectButton" parent="MainMenu/ButtonGroup" instance=ExtResource( 2 )]
+[node name="LevelSelectButton" parent="MainMenu/VBoxContainer/ButtonGroup" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
-margin/right = 350.0
+margin/right = 600.0
 margin/bottom = 80.0
 toggle_mode = true
 click_on_press = true
 
-[node name="Patch9Frame" parent="MainMenu/ButtonGroup/LevelSelectButton"]
+[node name="Patch9Frame" parent="MainMenu/VBoxContainer/ButtonGroup/LevelSelectButton"]
 
 editor/display_folded = true
 
-[node name="RichTextLabel" parent="MainMenu/ButtonGroup/LevelSelectButton/Patch9Frame/VBoxContainer"]
+[node name="RichTextLabel" parent="MainMenu/VBoxContainer/ButtonGroup/LevelSelectButton/Patch9Frame/VBoxContainer"]
 
-margin/right = 318.0
+margin/right = 568.0
 bbcode/bbcode = "[center]Select Level[/center]"
 
-[node name="HSeparator" type="HSeparator" parent="MainMenu/ButtonGroup"]
+[node name="HSeparator" type="HSeparator" parent="MainMenu/VBoxContainer/ButtonGroup"]
 
 visibility/opacity = 0.0
 rect/min_size = Vector2( 0, 25 )
@@ -61,27 +106,28 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 80.0
-margin/right = 350.0
+margin/right = 600.0
 margin/bottom = 105.0
 
-[node name="ExitButton" parent="MainMenu/ButtonGroup" instance=ExtResource( 2 )]
+[node name="ExitButton" parent="MainMenu/VBoxContainer/ButtonGroup" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
 margin/top = 105.0
-margin/right = 350.0
+margin/right = 600.0
 margin/bottom = 185.0
 toggle_mode = true
 click_on_press = true
 
-[node name="RichTextLabel" parent="MainMenu/ButtonGroup/ExitButton/Patch9Frame/VBoxContainer"]
+[node name="RichTextLabel" parent="MainMenu/VBoxContainer/ButtonGroup/ExitButton/Patch9Frame/VBoxContainer"]
 
-margin/right = 318.0
+margin/right = 568.0
 bbcode/bbcode = "[center]Exit[/center]"
 
 [node name="PlayMenu" type="CenterContainer" parent="."]
 
+editor/display_folded = true
 visibility/visible = false
 anchor/right = 1
 anchor/bottom = 1
@@ -89,22 +135,23 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 2.0
-margin/top = 2.0
-margin/right = -963.0
-margin/bottom = -738.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = -960.0
+margin/bottom = -736.0
 use_top_left = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PlayMenu"]
 
+rect/min_size = Vector2( 350, 0 )
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 362.0
-margin/top = 275.0
-margin/right = 662.0
-margin/bottom = 525.0
+margin/left = 337.0
+margin/top = 279.0
+margin/right = 687.0
+margin/bottom = 521.0
 alignment = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PlayMenu/VBoxContainer"]
@@ -115,7 +162,7 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 300.0
+margin/right = 350.0
 margin/bottom = 24.0
 alignment = 0
 
@@ -205,26 +252,37 @@ size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 28.0
-margin/right = 300.0
+margin/right = 350.0
 margin/bottom = 53.0
 
-[node name="StartGameBtn" parent="PlayMenu/VBoxContainer" instance=ExtResource( 2 )]
+[node name="ButtonGroup" type="ButtonGroup" parent="PlayMenu/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 57.0
+margin/right = 350.0
+margin/bottom = 242.0
+alignment = 0
+
+[node name="StartGameBtn" parent="PlayMenu/VBoxContainer/ButtonGroup" instance=ExtResource( 3 )]
 
 editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
-margin/top = 57.0
-margin/right = 300.0
-margin/bottom = 137.0
+margin/right = 350.0
+margin/bottom = 80.0
 toggle_mode = true
 click_on_press = true
 
-[node name="RichTextLabel" parent="PlayMenu/VBoxContainer/StartGameBtn/Patch9Frame/VBoxContainer"]
+[node name="RichTextLabel" parent="PlayMenu/VBoxContainer/ButtonGroup/StartGameBtn/Patch9Frame/VBoxContainer"]
 
-margin/right = 268.0
+margin/right = 318.0
 bbcode/bbcode = "[center]Start Game[/center]"
 
-[node name="HSeparator2" type="HSeparator" parent="PlayMenu/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="PlayMenu/VBoxContainer/ButtonGroup"]
 
 visibility/opacity = 0.0
 rect/min_size = Vector2( 0, 25 )
@@ -233,35 +291,309 @@ focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
-margin/top = 141.0
-margin/right = 300.0
-margin/bottom = 166.0
+margin/top = 80.0
+margin/right = 350.0
+margin/bottom = 105.0
 
-[node name="PlayBackBtn" parent="PlayMenu/VBoxContainer" instance=ExtResource( 2 )]
+[node name="PlayBackBtn" parent="PlayMenu/VBoxContainer/ButtonGroup" instance=ExtResource( 3 )]
 
+editor/display_folded = true
 anchor/right = 0
 anchor/bottom = 0
-margin/top = 170.0
-margin/right = 300.0
-margin/bottom = 250.0
+margin/top = 105.0
+margin/right = 350.0
+margin/bottom = 185.0
 toggle_mode = true
 click_on_press = true
 
-[node name="RichTextLabel" parent="PlayMenu/VBoxContainer/PlayBackBtn/Patch9Frame/VBoxContainer"]
+[node name="RichTextLabel" parent="PlayMenu/VBoxContainer/ButtonGroup/PlayBackBtn/Patch9Frame/VBoxContainer"]
 
-margin/right = 268.0
+margin/right = 318.0
 bbcode/bbcode = "[center]Back[/center]"
 
-[connection signal="pressed" from="MainMenu/ButtonGroup/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
+[node name="DiffMenu" type="CenterContainer" parent="."]
 
-[connection signal="pressed" from="MainMenu/ButtonGroup/ExitButton" to="." method="_on_ExitButton_pressed"]
+editor/display_folded = true
+visibility/visible = false
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1024.0
+margin/bottom = 800.0
+use_top_left = false
 
-[connection signal="pressed" from="PlayMenu/VBoxContainer/StartGameBtn" to="." method="_on_StartGameBtn_pressed"]
+[node name="VBoxContainer" type="VBoxContainer" parent="DiffMenu"]
 
-[connection signal="pressed" from="PlayMenu/VBoxContainer/PlayBackBtn" to="." method="_on_PlayBackBtn_pressed"]
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 312.0
+margin/top = 279.0
+margin/right = 712.0
+margin/bottom = 520.0
+alignment = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DiffMenu/VBoxContainer"]
+
+rect/min_size = Vector2( 400, 65 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 400.0
+margin/bottom = 65.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode/enabled = true
+bbcode/bbcode = "[center]Difficulty[/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="HSeparator" type="HSeparator" parent="DiffMenu/VBoxContainer"]
+
+visibility/self_opacity = 0.0
+rect/min_size = Vector2( 0, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 69.0
+margin/right = 400.0
+margin/bottom = 109.0
+
+[node name="DiffBtnContainer" type="GridContainer" parent="DiffMenu/VBoxContainer"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 113.0
+margin/right = 400.0
+margin/bottom = 193.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 5
+
+[node name="StoneButton" parent="DiffMenu/VBoxContainer/DiffBtnContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/right = 80.0
+margin/bottom = 80.0
+
+[node name="StoneButton 2" parent="DiffMenu/VBoxContainer/DiffBtnContainer" instance=ExtResource( 3 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 110.0
+margin/right = 190.0
+margin/bottom = 80.0
+
+[node name="StoneButton 3" parent="DiffMenu/VBoxContainer/DiffBtnContainer" instance=ExtResource( 3 )]
+
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 220.0
+margin/right = 300.0
+margin/bottom = 80.0
+
+[node name="HSeparator1" type="HSeparator" parent="DiffMenu/VBoxContainer"]
+
+visibility/self_opacity = 0.0
+rect/min_size = Vector2( 0, 40 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 197.0
+margin/right = 400.0
+margin/bottom = 237.0
+
+[node name="DiffBackBtn" parent="DiffMenu/VBoxContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/top = 241.0
+margin/right = 400.0
+margin/bottom = 321.0
+toggle_mode = true
+click_on_press = true
+
+[node name="RichTextLabel" parent="DiffMenu/VBoxContainer/DiffBackBtn/Patch9Frame/VBoxContainer"]
+
+margin/right = 368.0
+bbcode/bbcode = "[center]Back[/center]"
+
+[node name="LevelMenu" type="ScrollContainer" parent="."]
+
+editor/display_folded = true
+visibility/visible = false
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 30.0
+margin/top = 30.0
+margin/right = -930.0
+margin/bottom = -706.0
+scroll/horizontal = false
+scroll/vertical = true
+
+[node name="CenterContainer" type="CenterContainer" parent="LevelMenu"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 3
+size_flags/vertical = 3
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 0.0
+use_top_left = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelMenu/CenterContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 282.0
+margin/top = 264.0
+margin/right = 282.0
+margin/bottom = 265.0
+alignment = 0
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="LevelMenu/CenterContainer/VBoxContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+rect/min_size = Vector2( 400, 55 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 0.0
+margin/bottom = 156.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode/enabled = true
+bbcode/bbcode = "[center]Levels[/center]"
+visible_characters = -1
+percent_visible = 1.0
+
+[node name="HSeparator1" type="HSeparator" parent="LevelMenu/CenterContainer/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 30 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 59.0
+margin/right = 400.0
+margin/bottom = 89.0
+
+[node name="LevelBackBtn" parent="LevelMenu/CenterContainer/VBoxContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+margin/top = 93.0
+margin/right = 0.0
+margin/bottom = 38.0
+
+[node name="RichTextLabel" parent="LevelMenu/CenterContainer/VBoxContainer/LevelBackBtn/Patch9Frame/VBoxContainer"]
+
+margin/right = 368.0
+bbcode/bbcode = "[center]Back[/center]"
+
+[node name="HSeparator" type="HSeparator" parent="LevelMenu/CenterContainer/VBoxContainer"]
+
+rect/min_size = Vector2( 0, 30 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 177.0
+margin/right = 400.0
+margin/bottom = 207.0
+
+[node name="GridContainer" type="GridContainer" parent="LevelMenu/CenterContainer/VBoxContainer"]
+
+anchor/right = 1
+anchor/bottom = 1
+focus/ignore_mouse = false
+focus/stop_mouse = false
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 211.0
+margin/right = 0.0
+margin/bottom = -80.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 5
+
+[node name="StoneButton1" parent="LevelMenu/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/right = 80.0
+margin/bottom = 80.0
+
+[node name="StoneButton2" parent="LevelMenu/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 110.0
+margin/right = 190.0
+margin/bottom = 80.0
+
+[node name="StoneButton3" parent="LevelMenu/CenterContainer/VBoxContainer/GridContainer" instance=ExtResource( 3 )]
+
+editor/display_folded = true
+anchor/right = 0
+anchor/bottom = 0
+margin/left = 220.0
+margin/right = 300.0
+margin/bottom = 80.0
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/ButtonGroup/LevelSelectButton" to="." method="_on_LevelSelectButton_pressed"]
+
+[connection signal="pressed" from="MainMenu/VBoxContainer/ButtonGroup/ExitButton" to="." method="_on_ExitButton_pressed"]
+
+[connection signal="pressed" from="PlayMenu/VBoxContainer/ButtonGroup/StartGameBtn" to="." method="_on_StartGameBtn_pressed"]
+
+[connection signal="pressed" from="PlayMenu/VBoxContainer/ButtonGroup/PlayBackBtn" to="." method="_on_PlayBackBtn_pressed"]
+
+[connection signal="draw" from="DiffMenu" to="." method="_on_DiffMenu_draw"]
+
+[connection signal="pressed" from="DiffMenu/VBoxContainer/DiffBackBtn" to="." method="_on_DiffBackBtn_pressed"]
+
+[connection signal="pressed" from="LevelMenu/CenterContainer/VBoxContainer/LevelBackBtn" to="." method="_on_LevelBackBtn_pressed"]
 
 
-[editable path="MainMenu/ButtonGroup/LevelSelectButton"]
-[editable path="MainMenu/ButtonGroup/ExitButton"]
-[editable path="PlayMenu/VBoxContainer/StartGameBtn"]
-[editable path="PlayMenu/VBoxContainer/PlayBackBtn"]
+[editable path="MainMenu/VBoxContainer/ButtonGroup/LevelSelectButton"]
+[editable path="MainMenu/VBoxContainer/ButtonGroup/ExitButton"]
+[editable path="PlayMenu/VBoxContainer/ButtonGroup/StartGameBtn"]
+[editable path="PlayMenu/VBoxContainer/ButtonGroup/PlayBackBtn"]
+[editable path="DiffMenu/VBoxContainer/DiffBackBtn"]
+[editable path="LevelMenu/CenterContainer/VBoxContainer/LevelBackBtn"]
